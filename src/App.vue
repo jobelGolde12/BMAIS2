@@ -1,26 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+ <HomeSection />
+ <BmaisNavbar />
+ <BmaisSidenav class="sidenav"/>
+ <BmaisMainContent class="main-content"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import HomeSection from './components/HomeSection.vue'
+import BmaisNavbar from './components/BmaisNavbar.vue'
+import BmaisSidenav from './components/BmaisSidenav.vue'
+import BmaisMainContent from './components/BmaisMainContent.vue'
+
+
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+ components: {
+  HomeSection, BmaisNavbar,BmaisSidenav,BmaisMainContent
+ }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import "~bootstrap/dist/css/bootstrap.css";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import "../componets/styles/homesectionstyle.css";
 </style>
