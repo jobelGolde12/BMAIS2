@@ -2,4 +2,50 @@
     --clr-primary: #fff;
     --clr-secondary: #333;
     --clr-in-hover: orange;
+    --bg-primary: #f5f5f5f5;
+}
+body{
+    overflow-x: hidden;
+    background: var(--bg-primary);
+}
+.main{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+.main .sidenav{
+    position: relative;
+    width: 25%;
+    height: 100%;
+}
+.main .main-content{
+    position: relative;
+    top: 0;
+    height: 100%;
+    flex:1;
+
+}
+.sidenav .a-logo{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: darkblue;
+}
+.sidenav .ul a , .sidenav .li-home a{
+    text-decoration: none;
+    color: var(--clr-secondary);
+}
+.sidenav-header{
+    border-bottom:1px solid var(--clr-secondary);
+    padding-bottom: .5rem;
+}
+.sidenav .li-home{
+    margin-left: 3rem;
+}
+.li-home a:hover ,.sidenav .li-home i:hover{
+ color: var(--clr-in-hover);
+}
+.main-content .main-content-header .card{
+    cursor: pointer;
 }

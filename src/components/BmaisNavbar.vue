@@ -2,8 +2,9 @@
     <div>
         <header class="header d-flex flex-row justify-content-between pt-2 ps-2 pe-2  align-items-center">
             <div class="logo"><h5>BMAIS</h5></div>
-            <div class="search">
+            <div class="search d-flex flex-row align-items-center">
                 <input type="text" placeholder="Seach...">
+                <i class="bi bi-search"></i>
             </div>
 
             <div class="navbar-right">
@@ -52,5 +53,8 @@ export default {
    .navbar-right i:hover{
     color: var(--clr-in-hover);
 
+   }
+   .search i{
+    transform: translateX(-170%);
    }
 </style>
