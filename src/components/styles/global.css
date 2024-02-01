@@ -12,19 +12,21 @@ body{
     position: absolute;
     width: 100vw;
     height: 100vh;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 .main .sidenav{
     position: relative;
     width: 25%;
     height: 100%;
+    overflow-y: scroll;
 }
 .main .main-content{
     position: relative;
     top: 0;
     height: 100%;
     flex:1;
-
+    overflow-y: scroll;
+   
 }
 .sidenav .a-logo{
     width: 30px;
@@ -48,4 +50,26 @@ body{
 }
 .main-content .main-content-header .card{
     cursor: pointer;
+}
+.main-content{
+    overflow-y: scroll;
+}
+.sidenav .activities a , .sidenav .household a , .sidenav .contact a{
+    text-decoration: none;
+    color: var(--clr-secondary);
+}
+.sidenav .activities a:hover , .sidenav .household a:hover , .sidenav .contact a:hover{
+    color: var(--clr-in-hover);
+}
+._sidenav-btn{
+    position: absolute;
+    top: 0%;
+    right: 0;
+    z-index: 999;
+}
+.events-table tbody tr td img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transform: translateY(-20%);
 }

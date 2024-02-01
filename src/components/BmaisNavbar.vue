@@ -57,4 +57,7 @@ export default {
    .search i{
     transform: translateX(-170%);
    }
+   .search{
+    margin-left: 9rem;
+   }
 </style>
