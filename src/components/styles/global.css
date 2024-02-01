@@ -54,11 +54,11 @@ body{
 .main-content{
     overflow-y: scroll;
 }
-.sidenav .activities a , .sidenav .household a , .sidenav .contact a{
+.sidenav .activities a , .sidenav .household a , .sidenav .contact a, .sidenav .meeting a{
     text-decoration: none;
     color: var(--clr-secondary);
 }
-.sidenav .activities a:hover , .sidenav .household a:hover , .sidenav .contact a:hover{
+.sidenav .activities a:hover , .sidenav .household a:hover , .sidenav .contact a:hover , .sidenav .meeting a:hover{
     color: var(--clr-in-hover);
 }
 ._sidenav-btn{

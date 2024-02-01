@@ -1,9 +1,9 @@
 <template>
- <HomeSection />
+ <HomeSection/>
  <BmaisNavbar />
  <div class="main d-flex flex-row">
-   <BmaisSidenav class="sidenav ps-2"/>
- <BmaisMainContent class="main-content"/>
+   <BmaisSidenav class="sidenav ps-2" :toggleMainContent="getToggleMainContent" @toggleMainContentFunc="toggleMainContentFunc"/>
+ <BmaisMainContent class="main-content" v-if="getToggleMainContent"/>
  </div>
 </template>
 
@@ -17,8 +17,18 @@ import BmaisMainContent from './components/BmaisMainContent.vue'
 
 export default {
   name: 'App',
+  data(){
+    return{
+     getToggleMainContent: null
+    }
+  },
  components: {
   HomeSection, BmaisNavbar,BmaisSidenav,BmaisMainContent
+ },
+ methods:{
+  toggleMainContentFunc(newBoolean){
+    this.getToggleMainContent = newBoolean
+  }
  }
 }
 </script>

@@ -9,11 +9,11 @@
 
     <div class="home mb-2">
       <div class="ul">
-        <span><i class="bi bi-caret-right me-2"></i> <i class="bi bi-caret-down me-2" v-if="isCliked"></i></span>
+        <span><i class="bi bi-caret-right me-2" v-if="!isClicked"></i> <i class="bi bi-caret-down me-2" v-if="isClicked"></i></span>
        <a href="#" @click="toggleClick"> <i class="bi bi-house"></i>  Home</a>
        </div>  
       <div class="li-home" v-if="isClicked">
-      <div><a href="#"><i class="bi bi-house me-1"></i> Home</a></div>  
+      <div><a href="#" @click="toggleMainContentFunc"><i class="bi bi-house me-1"></i> Home</a></div>  
       <div><a href="#"><i class="bi bi-megaphone me-1"></i> Announcement or News</a></div>  
       <div ><a href="#"> <i class="bi bi-tools me-2"> </i>Services</a></div>  
       <div><a href="#"><i class="bi bi-phone me-2"></i>Directory or Contacts</a></div>  
@@ -38,9 +38,9 @@
         <span><i class="bi bi-caret-right me-2" v-if="!isClicked3"></i> <i class="bi bi-caret-down me-2" v-if="isClicked3"></i></span>
         <i class="bi bi-person"></i> <a href="#" @click="toggleStaff">Staff</a></div>  
       <div class="li-home" v-if="isClicked3">
-      <div><a href="#"><i class="bi bi-person me-1"></i> Barangay captain</a></div>  
-      <div ><a href="#"> <i class="bi bi-tools me-2"> </i>Council member</a></div>  
-      <div><a href="#"><i class="bi bi-phone me-2"></i>Watch man</a></div>  
+      <div><a href="#"><i class="bi bi-pen me-1"></i> Secretary</a></div>  
+      <div ><a href="#"> <i class="bi bi-coin me-2"> </i>Tresurer</a></div>  
+      <div><a href="#"><i class="bi bi-heart me-2"></i>BHW</a></div>  
       </div>  
     </div>
 
@@ -62,9 +62,9 @@
       <div class="li-home" v-if="isClicked5">
       <div><a href="#"><i class="bi bi-plus me-1"></i> Create new</a></div>  
       <div ><a href="#"> <i class="bi bi-list me-2"> </i>Project list view</a></div>  
-      <div><a href="#"><i class="bi bi-phone me-2"></i>Project board view</a></div>  
-      <div><a href="#"><i class="bi bi-phone me-2"></i>Project Todo list</a></div>  
-      <div><a href="#"><i class="bi bi-phone me-2"></i>Project details</a></div>  
+      <div><a href="#"><i class="bi bi-border-all me-2"></i>Project board view</a></div>  
+      <div><a href="#"><i class="bi bi-list-task me-2"></i>Project Todo list</a></div>  
+      <div><a href="#"><i class="bi bi-ticket-detailed me-2"></i>Project details</a></div>  
 
       </div>  
     </div>
@@ -82,6 +82,9 @@
       <a href="#"><i class="bi bi-telephone me-2"></i>Contact</a>
     </div>
 
+   <div class="meeting mb-2">
+      <a href="#"><i class="bi bi-info-square me-2"></i>Meeting</a>
+    </div>
    <i class="_sidenav-btn bi bi-list fs-3 text-primary" @click="toggleSidenav"></i>
     </div>
 </template>
@@ -91,18 +94,22 @@
 export default{
  data(){
     return{
-        isCliked: false,
+        isClicked: false,
         isClicked2: false,
         isClicked3: false,
         isClicked4: false,
         isClicked5: false,
-        showSidenav: true
+        showSidenav: true,
+        toggleMainContent: false
     }
  },
+    props: {
+            toggleMainContent: Boolean
+    },
 
  methods:{
     toggleClick(){
-        this.isCliked = !this.isCliked
+        this.isClicked = !this.isClicked
     },
 
     toggleBarangayOfficial(){
@@ -120,8 +127,16 @@ export default{
     },
     toggleSidenav(){
       this.showSidenav = !this.showSidenav
+    },
+    toggleMainContentFunc(){
+      this.toggleMainContent = !this.toggleMainContent
+      this.$emit('toggleMainContentFunc',this.toggleMainContent)
+
     }
 
+ },
+ mounted(){
+  this.toggleMainContentFunc()
  }
 }
 
