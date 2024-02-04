@@ -14,9 +14,9 @@
        </div>  
       <div class="li-home" v-if="isClicked">
       <div><a href="#" @click="toggleMainContentFunc"><i class="bi bi-house me-1"></i> Home</a></div>  
-      <div><a href="#"><i class="bi bi-megaphone me-1"></i> Announcement or News</a></div>  
+      <div><a href="#" @click="toggleAnnouncementFunc"><i class="bi bi-megaphone me-1"></i> Announcement or News</a></div>  
       <div ><a href="#"> <i class="bi bi-tools me-2"> </i>Services</a></div>  
-      <div><a href="#"><i class="bi bi-phone me-2"></i>Directory or Contacts</a></div>  
+      <div><a href="#" @click="toggleContactFunc"><i class="bi bi-phone me-2"></i>Directory or Contacts</a></div>  
       <div><a href="#"><i class="bi bi-people-fill"></i> Community Resources</a></div>
       </div>  
 
@@ -78,9 +78,9 @@
       <a href="#"><i class="bi bi-houses me-2"></i>Household</a>
     </div>
 
-    <div class="contact mb-2">
+    <!-- <div class="contact mb-2">
       <a href="#"><i class="bi bi-telephone me-2"></i>Contact</a>
-    </div>
+    </div> -->
 
    <div class="meeting mb-2">
       <a href="#"><i class="bi bi-info-square me-2"></i>Meeting</a>
@@ -100,11 +100,14 @@ export default{
         isClicked4: false,
         isClicked5: false,
         showSidenav: true,
-        toggleMainContent: false
+        toggleMainContent: false,
+        toggleAnnouncement: false,
+        toggleContact: null
     }
  },
     props: {
-            toggleMainContent: Boolean
+            toggleMainContent: Boolean,
+            toggleAnnouncement: Boolean
     },
 
  methods:{
@@ -132,11 +135,15 @@ export default{
       this.toggleMainContent = !this.toggleMainContent
       this.$emit('toggleMainContentFunc',this.toggleMainContent)
 
+    },
+    toggleAnnouncementFunc(){
+     this.toggleAnnouncement = !this.toggleAnnouncement
+      this.$emit('toggleAnnouncementFunc',this.toggleAnnouncementFunc)
+    },
+    toggleContactFunc(){
+      this.$emit('toggleContactFunc', this.toggleContactFunc)
     }
 
- },
- mounted(){
-  this.toggleMainContentFunc()
  }
 }
 
